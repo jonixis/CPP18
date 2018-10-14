@@ -5,7 +5,6 @@
 using namespace std;
 
 void foo(Pvector<int> *pv) {
-
     pv->push_back(pv->getSize());
 
     for (int i = 0; i < pv->getSize(); i++) {
@@ -14,7 +13,6 @@ void foo(Pvector<int> *pv) {
 }
 
 void bar(Pset<string> *ps) {
-
 	ps->insert_back("zookie" + to_string(ps->getSize()));
 
 	ps->printSet();
