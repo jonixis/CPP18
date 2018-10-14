@@ -23,12 +23,12 @@ void bar(Pset<string> *ps) {
 int main() {
 	cout << "----- Pvector -----" << endl;
 
-    Pvector<int> pv("pvector-int.txt");
+    Pvector<int> pv("tmp/pvector-int.txt");
     foo(&pv);
 
     cout << "----- Pset -----" << endl;
 
-    Pset<string> ps("pset-string.txt");
+    Pset<string> ps("tmp/pset-string.txt");
     bar(&ps);
 
     return 0;

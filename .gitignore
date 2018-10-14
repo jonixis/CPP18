@@ -47,6 +47,8 @@ build
 ### macOS ###
 .DS_Store
 
+tmp
+
 
 
 
