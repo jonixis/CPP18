@@ -1,6 +1,8 @@
 #ifndef PLAYFIELD_H
 #define PLAYFIELD_H
 
+#include <vector>
+
 class playfield {
 public:
   // the size of the field
@@ -8,18 +10,31 @@ public:
   const static int height = 6;
 
   // these elements are used to indicate whether a given position 
-  // in the playing field is taken by a given player const static int none=0;
+  // in the playing field is taken by a given player 
+  const static int none = 0;
   const static int player1 = 1;
   const static int player2 = 2;
 
+  const static int win = 4;
+
+  const std::vector<std::string> stone;
+
 protected:
   // the internal representation of the field
-  char rep[playfield::width][playfield::height];
+  // char rep[playfield::width][playfield::height];
+  char rep[playfield::height][playfield::width];
 
 public:
   playfield();
 
   void print() const;
+  bool columnfull(int column);
+  void insertstone(int column, int player);
+  bool haswonhorizontal(int column, int row, int player) const;
+  bool haswonvertical(int column, int row, int player) const;
+  bool haswondiagonalslash(int column, int row, int player) const;
+  bool haswondiagonalbackslash(int column, int row, int player) const;
+  bool haswon(int player) const; 
 
   // return the stone (none/player1/player2) at the position(x,y)
   // 0 <= x <= width
