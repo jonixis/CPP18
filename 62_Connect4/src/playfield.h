@@ -28,7 +28,7 @@ public:
   playfield();
 
   void print() const;
-  bool columnfull(int column);
+  bool columnfull(int column) const;
   void insertstone(int column, int player);
   bool haswonhorizontal(int column, int row, int player) const;
   bool haswonvertical(int column, int row, int player) const;

@@ -21,7 +21,7 @@ void playfield::print() const {
   }
 }
 
-bool playfield::columnfull(int column) {
+bool playfield::columnfull(int column) const {
   return rep[0][column] != none;
 }
 

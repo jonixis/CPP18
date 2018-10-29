@@ -8,10 +8,11 @@
 
 template<typename F>
 class randomplayer {
+  const int player_id;
 
 public:
 
-  randomplayer() {
+  randomplayer(int player_id) : player_id(player_id){
     std::srand(std::time(NULL));
   }
 
@@ -20,8 +21,14 @@ public:
   // the stoneat method, if you expect a different class because 
   // you need methods to verify whether the opponent can win, 
   // copy the field into the class that you expect.
-  int play(const F &field) {
-    return std::rand() % 7;
+  int play(F &field) {
+    int column = std::rand() % 7;
+    while (field.columnfull(column)) {
+      column = std::rand() % 7;
+    }
+    field.insertstone(column, player_id);
+
+    return column;
   }
 };
 
