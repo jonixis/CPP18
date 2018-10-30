@@ -2,6 +2,7 @@
 #define PLAYFIELD_H
 
 #include <vector>
+#include "playfield_traits.h"
 
 class playfield {
 public:
@@ -21,20 +22,15 @@ public:
 
 protected:
   // the internal representation of the field
-  // char rep[playfield::width][playfield::height];
+  // char rep[playfield::width][playfield::height]; wrong ??
   char rep[playfield::height][playfield::width];
 
 public:
   playfield();
-
+  
   void print() const;
-  bool columnfull(int column) const;
   void insertstone(int column, int player);
-  bool haswonhorizontal(int column, int row, int player) const;
-  bool haswonvertical(int column, int row, int player) const;
-  bool haswondiagonalslash(int column, int row, int player) const;
-  bool haswondiagonalbackslash(int column, int row, int player) const;
-  bool haswon(int player) const; 
+
 
   // return the stone (none/player1/player2) at the position(x,y)
   // 0 <= x <= width

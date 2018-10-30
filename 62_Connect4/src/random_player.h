@@ -2,18 +2,18 @@
 #define RANDOMPLAYER_H
 
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include "playfield_traits.h"
 
 
-template<typename F>
+template<typename F, typename P=playfield_traits<playfield>>
 class randomplayer {
   const int player_id;
 
 public:
+  using playfieldtraits = P;
 
   randomplayer(int player_id) : player_id(player_id){
-    std::srand(std::time(NULL));
+    srand(time(NULL));
   }
 
   // returns the column where the player decides to throw in his stone
@@ -23,10 +23,9 @@ public:
   // copy the field into the class that you expect.
   int play(F &field) {
     int column = std::rand() % 7;
-    while (field.columnfull(column)) {
+    while (playfieldtraits::columnfull(field, column)) {
       column = std::rand() % 7;
     }
-    field.insertstone(column, player_id);
 
     return column;
   }
