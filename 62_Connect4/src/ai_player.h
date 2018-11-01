@@ -28,11 +28,11 @@ public:
 
   void insertteststone(std::vector<std::vector<char>> &rep, int column, int player) {
     int row = F::height - 1;
-    while (rep[row][column] != F::none) {
+    while (rep[column][row] != F::none) {
       row--;
     }
 
-    rep[row][column] = player;
+    rep[column][row] = player;
   }
 
   int findbestcolumn(const F &field) {
@@ -60,7 +60,7 @@ public:
 
   bool haswonhorizontal(const std::vector<std::vector<char>> rep, int column, int row, int player) {
     for (int i = 0; i < win; i++) {
-      if (rep[row][column + i] != player) {
+      if (rep[column + i][row] != player) {
         return false;
       }
     }
@@ -69,7 +69,7 @@ public:
 
   bool haswonvertical(const std::vector<std::vector<char>> rep, int column, int row, int player) {
     for (int i = 0; i < win; i++) {
-      if (rep[row - i][column] != player) {
+      if (rep[column][row - i] != player) {
         return false;
       }
     }
@@ -78,7 +78,7 @@ public:
 
   bool haswondiagonalslash(const std::vector<std::vector<char>> rep, int column, int row, int player) {
     for (int i = 0; i < win; i++) {
-      if (rep[row - i][column + i] != player) {
+      if (rep[column + i][row - i] != player) {
         return false;
       }
     }
@@ -87,7 +87,7 @@ public:
 
   bool haswondiagonalbackslash(const std::vector<std::vector<char>> rep, int column, int row, int player) {
     for (int i = 0; i < win; i++) {
-      if (rep[row - i][column - i] != player) {
+      if (rep[column - i][row - i] != player) {
         return false;
       }
     }
