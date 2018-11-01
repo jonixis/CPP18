@@ -11,9 +11,9 @@ struct playfield_traits {
   static const int win = 4;
 
   static std::vector<std::vector<char>> copyrep(const F &field) {
-    std::vector<std::vector<char>> rep(F::height, std::vector<char>(F::width));
-    for (int i = 0; i < F::height; i++) {
-      for (int j = 0; j < F::width; j++) {
+    std::vector<std::vector<char>> rep(F::width, std::vector<char>(F::height));
+    for (int i = 0; i < F::width; i++) {
+      for (int j = 0; j < F::height; j++) {
         rep[i][j] = field.stoneat(i,j);
       }
     }
@@ -21,12 +21,12 @@ struct playfield_traits {
   }
 
   static bool columnfull(const F &field, int column) {
-    return field.stoneat(0, column) != F::none;
+    return field.stoneat(column, 0) != F::none;
   }
 
   static bool haswonhorizontal(const F &field, int column, int row, int player) {
     for (int i = 0; i < win; i++) {
-      if (field.stoneat(row, column + i) != player) {
+      if (field.stoneat(column + i, row) != player) {
         return false;
       }
     }
@@ -35,7 +35,7 @@ struct playfield_traits {
 
   static bool haswonvertical(const F &field, int column, int row, int player) {
     for (int i = 0; i < win; i++) {
-      if (field.stoneat(row - i, column) != player) {
+      if (field.stoneat(column, row - i) != player) {
         return false;
       }
     }
@@ -44,7 +44,7 @@ struct playfield_traits {
 
   static bool haswondiagonalslash(const F &field, int column, int row, int player) {
     for (int i = 0; i < win; i++) {
-      if (field.stoneat(row - i, column + i) != player) {
+      if (field.stoneat(column + i, row - i) != player) {
         return false;
       }
     }
@@ -53,7 +53,7 @@ struct playfield_traits {
 
   static bool haswondiagonalbackslash(const F &field, int column, int row, int player) {
     for (int i = 0; i < win; i++) {
-      if (field.stoneat(row - i, column - i) != player) {
+      if (field.stoneat(column - i, row - i) != player) {
         return false;
       }
     }

@@ -22,8 +22,8 @@ public:
 
 protected:
   // the internal representation of the field
-  // char rep[playfield::width][playfield::height]; wrong ??
-  char rep[playfield::height][playfield::width];
+  char rep[playfield::width][playfield::height];
+  // char rep[playfield::height][playfield::width];
 
 public:
   playfield();

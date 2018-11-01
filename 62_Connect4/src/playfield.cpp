@@ -5,8 +5,8 @@ using namespace std;
 
 playfield::playfield() : stone({"  ", "\U0001F534", "\U0001F535"}) {
   // Init playfield with zeros
-  for (int i = 0; i < height; i++) {
-    for (int j = 0; j < width; j++) {
+  for (int i = 0; i < width; i++) {
+    for (int j = 0; j < height; j++) {
       rep[i][j] = none;
     }
   }
@@ -14,17 +14,17 @@ playfield::playfield() : stone({"  ", "\U0001F534", "\U0001F535"}) {
 
 void playfield::insertstone(int column, int player) {
   int row = height - 1;
-  while(rep[row][column] != none) {
+  while(rep[column][row] != none) {
     row--;
   }
 
-  rep[row][column] = player;
+  rep[column][row] = player;
 }
 
 void playfield::print() const {
   for (int i = 0; i < height; i++) {
     for (int j = 0; j < width; j++) {
-      cout << "" << stone[rep[i][j]] << " ";
+      cout << "" << stone[rep[j][i]] << " ";
     }
     cout << endl;
   }
