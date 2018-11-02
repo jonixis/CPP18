@@ -23,6 +23,11 @@ int main(int argc, char const *argv[]) {
   aiplayer<playfield> aiplayer2(2);
   randomplayer<playfield> randplayer2(2);
   alphonse::player<playfield> alphie2(2);
+  randomplayer<playfield> randplayer2(2);
+
+  // AI
+  aiplayer<playfield> aiplayer2(2);
+  alphonse::player<playfield> alphie(1);
 
   field.print();
 
@@ -38,9 +43,11 @@ int main(int argc, char const *argv[]) {
     }
 
     cout << "Player 2" << endl;
+    /field.insertstone(player2.play(field), player2.getplayerid());
+    // field.insertstone(aiplayer2.play(field), 2);
     // field.insertstone(player2.play(field), player2.getplayerid());
-    field.insertstone(aiplayer2.play(field), 2);
     // field.insertstone(randplayer2.play(field), player2.getplayerid());
+    field.insertstone(alphie2.play(field), 2);
     field.print();
     if (playfieldtraits::haswon(field, 2)) {
       cout << "Player 2 has won!" << endl;
