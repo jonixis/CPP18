@@ -64,21 +64,20 @@ struct playfield_traits {
     for (int i = F::height - 1; i >= 0; i--) {
       for (int j = 0; j < F::width; j++) {
 
-        if (j + win <= F::width && haswonhorizontal(field, j, i, player)) {
+        if (j + (win-1) <= F::width && haswonhorizontal(field, j, i, player)) {
           return true;
         }
 
-        if (i - win >= 0 && haswonvertical(field, j, i, player)) {
+        if (i - (win-1) >= 0 && haswonvertical(field, j, i, player)) {
           return true;
         }
 
-        if (j + win <= F::width && i - win >= 0 &&
+        if (j + (win-1) <= F::width && i - (win-1) >= 0 &&
             haswondiagonalslash(field, j, i, player)) {
           return true;
         }
 
-        if (i + win >= 0 && j - win >= 0 &&
-            haswondiagonalbackslash(field, j, i, player)) {
+        if (i - (win-1) >= 0 && j - (win-1) >= 0 && haswondiagonalbackslash(field, j, i, player)) {
           return true;
         }
       }

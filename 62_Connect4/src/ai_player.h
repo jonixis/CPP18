@@ -36,6 +36,7 @@ public:
   }
 
   int findbestcolumn(const F &field) {
+    // Tests if oppenent coudl win in one move and prevents that
     for (int i = 0; i < F::width; i++) {
       std::vector<std::vector<char>> rep = playfieldtraits::copyrep(field);
       if (!playfieldtraits::columnfull(field, i)) {
@@ -45,6 +46,7 @@ public:
         }
       }
     }
+    // Tests if player can win in one move an chooses winning column
     for (int i = 0; i < F::width; i++) {
       std::vector<std::vector<char>> rep = playfieldtraits::copyrep(field);
       if (!playfieldtraits::columnfull(field, i)) {
@@ -55,6 +57,7 @@ public:
       }
     }
 
+    // If both is not the case, choose random column
     return getrandomcolumn(field);
   }
 
@@ -98,20 +101,20 @@ public:
     for (int i = F::height - 1; i >= 0; i--) {
       for (int j = 0; j < F::width; j++) {
 
-        if (j + win <= F::width && haswonhorizontal(rep, j, i, player)) {
+        if (j + (win-1) < F::width && haswonhorizontal(rep, j, i, player)) {
           return true;
         }
 
-        if (i - win >= 0 && haswonvertical(rep, j, i, player)) {
+        if (i - (win-1) >= 0 && haswonvertical(rep, j, i, player)) {
           return true;
         }
 
-        if (j + win <= F::width && i - win >= 0 &&
+        if (j + (win-1) < F::width && i - (win-1) >= 0 &&
             haswondiagonalslash(rep, j, i, player)) {
           return true;
         }
 
-        if (i + win >= 0 && j - win >= 0 &&
+        if (i + (win-1) >= 0 && j - (win-1) >= 0 &&
             haswondiagonalbackslash(rep, j, i, player)) {
           return true;
         }
