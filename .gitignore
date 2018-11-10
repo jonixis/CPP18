@@ -52,6 +52,12 @@ tmp
 *.sublime-project
 *.sublime-workspace
 
+### Java/IntelliJ ###
+.idea
+Java.iml
+out
+
+
 
 
 
