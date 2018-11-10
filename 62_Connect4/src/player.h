@@ -4,7 +4,7 @@
 #include <iostream>
 #include "playfield_traits.h"
 
-template<typename F, typename P=playfield_traits<playfield>>
+template<typename F, typename P=playfield_traits<F>>
 class player {
   const int player_id;
 

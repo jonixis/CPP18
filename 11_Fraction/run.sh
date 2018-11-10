@@ -3,7 +3,7 @@
 TARGET="11_Fraction"
 
 # To setup run once:
-# mkdir build && cd build && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+#mkdir build && cd build && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
 
 # Build executable and exit if error occurs
 cmake --build build/ --target $TARGET

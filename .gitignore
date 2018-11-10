@@ -46,8 +46,11 @@ build
 
 ### macOS ###
 .DS_Store
-
 tmp
+
+### Sublime ###
+.sublime-project
+.sublime-workspace
 
 
 

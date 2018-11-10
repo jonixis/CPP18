@@ -14,7 +14,7 @@ void SpellCheck::run() {
 }
 
 bool SpellCheck::word_in_dict(string word) {
-  return dict.find(word) == dict.end() ? false : true;
+  return dict.find(word) != dict.end();
 }
 
 void replace_word(string &word) {

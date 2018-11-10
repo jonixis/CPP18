@@ -3,8 +3,10 @@
 
 #include "playfield_traits.h"
 #include <iostream>
+#include <ctime>
 
-template <typename F, typename P = playfield_traits<playfield>> 
+
+template <typename F, typename P = playfield_traits<F>> 
 class aiplayer {
   const int player_id;
   const int opponent_id;

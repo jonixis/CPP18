@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <vector>
-#include "playfield.h"
 
 template <typename F> 
 struct playfield_traits {
@@ -83,6 +82,15 @@ struct playfield_traits {
       }
     }
     return false;
+  }
+
+  static bool isdraw(const F &field) {
+    for (int i = 0; i < F::width; i++) {
+      if (!columnfull(field, i)) {
+        return false;
+      }
+    }
+    return true;
   }
 };
 
