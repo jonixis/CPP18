@@ -5,7 +5,7 @@
 #include "playfield_traits.h"
 
 
-template<typename F, typename P=playfield_traits<playfield>>
+template<typename F, typename P=playfield_traits<F>>
 class randomplayer {
   const int player_id;
 
@@ -17,9 +17,9 @@ public:
   }
 
   // returns the column where the player decides to throw in his stone
-  // F is the playfield which may be any playfield implementing 
-  // the stoneat method, if you expect a different class because 
-  // you need methods to verify whether the opponent can win, 
+  // F is the playfield which may be any playfield implementing
+  // the stoneat method, if you expect a different class because
+  // you need methods to verify whether the opponent can win,
   // copy the field into the class that you expect.
   int play(F &field) {
     int column = std::rand() % 7;
