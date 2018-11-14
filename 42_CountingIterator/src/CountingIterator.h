@@ -2,7 +2,7 @@
 #define COUNTING_ITERATOR_COUNTING_ITERATOR_H
 
 #include <iterator>
-// #include <iostream>
+#include <iostream>
 
 template<typename T>
 class CountingIterator : public std::iterator<std::bidirectional_iterator_tag, T>
@@ -39,7 +39,7 @@ public:
 
 	bool operator==(CountingIterator other) const {
 		// std::cout << "t: " << t << " | other.t: " << other.t << std::endl;
-		return t == ++other.t;
+		return t == other.t;
 	}
 
 	bool operator!=(CountingIterator other) const {
