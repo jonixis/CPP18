@@ -1,11 +1,12 @@
 #!/bin/bash
 
-TARGET="42_FindIf"
+TARGET="42_CountingIterator"
 
 # To setup run the following commands once:
 mkdir build
 cd build
-cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+# cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+cmake ..
 cd ..
 
 # Build executable and exit if error occurs
@@ -17,7 +18,7 @@ if [ $retValue -ne 0 ];  then
 fi
 
 # Update compile commands (install compdb: pip install compdb)
-compdb -p build/ list > compile_commands.json
+# compdb -p build/ list > compile_commands.json
 
 # Run
 cd build

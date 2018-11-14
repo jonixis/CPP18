@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(42_FindIf)
+project(42_CountingIterator)
 
 set(CMAKE_CXX_STANDARD 17)
 
