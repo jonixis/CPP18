@@ -1,9 +1,9 @@
 #include "Stack.h"
 #include <iostream>
 
-	Stack::Stack() : sp(256) {
-		/* VOID */
-	}
+	Stack::Stack() : sp(256) { }
+	Stack::~Stack() { }
+
 
 	void Stack::push(int i) {
 		if (full()) {
@@ -14,6 +14,9 @@
 	}
 
 	int Stack::pop() {
+		if (empty()) {
+			std::cout << "Stack Empty! Following pops are not from stack!" << std::endl;
+		}
 		return s[sp++];
 	}
 

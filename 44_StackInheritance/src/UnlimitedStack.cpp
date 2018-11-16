@@ -1,14 +1,25 @@
 #include "UnlimitedStack.h"
+#include <algorithm>
+#include <iterator>
 
-UnlimitedStack::UnlimitedStack() : size(0) { }
+
+UnlimitedStack::UnlimitedStack() { }
+UnlimitedStack::~UnlimitedStack() { }
 
 void UnlimitedStack::push(int i) {
-	if (Stack::full()) {
-		resizeStack();
-	}
+	this->v.push_back(i);
 }
 
-void UnlimitedStack::resizeStack() {
-	int* temp[2];
-	s = temp;
+int UnlimitedStack::pop() {
+	int popped = this->v.back();
+	this->v.pop_back();
+	return popped;
+}
+
+bool UnlimitedStack::empty() {
+	return this->v.empty();
+}
+
+bool UnlimitedStack::full() {
+	return false;
 }
