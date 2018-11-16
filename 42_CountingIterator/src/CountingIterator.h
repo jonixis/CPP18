@@ -10,6 +10,10 @@ class CountingIterator : public std::iterator<std::bidirectional_iterator_tag, T
 
 	T t;
 
+	// Could also be solved without inheritance.
+	// With the correct five using (typedefs) (e.g. Input Iterator Tag) it will
+	// be recogniced as an iterator. It then can be used in std::for_each
+
 public:
 	CountingIterator(T _t = 0) : t(_t) {
 
