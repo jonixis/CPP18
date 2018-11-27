@@ -57,7 +57,9 @@ tmp
 Java.iml
 out
 
+### CCLS Server ###
+.ccls-cache
 
-
-
-
+### cquery ###
+.vscode
+.cquery
